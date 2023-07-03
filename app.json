@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "apploja",
-    "slug": "apploja",
+    "name": "appLoja",
+    "slug": "appLoja",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

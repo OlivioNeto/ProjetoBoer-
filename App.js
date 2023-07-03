@@ -1,37 +1,20 @@
-import 'react-native-gesture-handler';
-import React from 'react';
-//navegar entre telas do aplicativo 
-import { NavigationContainer } from '@react-navigation/native';
-//navegar utilizando o conceito de pilha 
-import { createStackNavigator } from '@react-navigation/stack';
-import TelaPrincipal from './components/TelaPrincipal/telaprincipal';
-import Login from './components/Login/login';
+import React, { useState } from 'react';
+import Login from './components/login/login';
+import Menu from './components/Menu/menu';
 
- 
 
-const Stack = createStackNavigator();
 
- 
+export default function App() {
+  const [user, setUser] = useState(null);
 
-class App extends React.Component {
-  render() {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={TelaPrincipal}
-          />
-          <Stack.Screen
-            name="Login"
-            component={Login}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
+
+
+  //verifica se existe um usuário logado, se não houver chama a
+  //tela de login
+  if (!user) {
+    return <Login changeStatus={(user) => setUser(user)} />
   }
+
+  return <Menu />
 }
 
- 
-
-export default App;
